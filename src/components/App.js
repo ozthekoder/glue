@@ -1,22 +1,15 @@
-import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
+import React from 'react';
+import Left from '../containers/Left';
+import Right from '../containers/Right';
+import Header from '../containers/Header';
 
-const App = (props) => {
+export default function App(props) {
+  console.log('APP RENDERED');
   return (
-    <div>
-      <IndexLink to="/">Home</IndexLink>
-      {' | '}
-      <Link to="/fuel-savings">Demo App</Link>
-      {' | '}
-      <Link to="/about">About</Link>
-      <br/>
-      {props.children}
+    <div id="app">
+      <Header {...props} />
+      <Left {...props} />
+      <Right {...props} />
     </div>
   );
-};
-
-App.propTypes = {
-  children: PropTypes.element
-};
-
-export default App;
+}
