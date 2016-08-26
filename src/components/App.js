@@ -5,11 +5,12 @@ import Header from '../containers/Header';
 
 export default function App(props) {
   console.log('APP RENDERED');
+  console.log(props);
   return (
     <div id="app">
-      <Header {...props} />
-      <Left {...props} />
-      <Right {...props} />
+      <Header />
+      <Left />
+      <Right />
     </div>
   );
 }
