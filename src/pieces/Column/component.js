@@ -1,21 +1,20 @@
-
 import React, { PropTypes } from 'react';
 
-const Header = (props) => {
-    console.log('HEADER RENDERED');
+const Column = (props) => {
+    console.log('COLUMN RENDERED');
     return (
       <div>
-      HEADER
+      ROW
       <button onClick={props.actions.incrementLeft}>left</button>
       <button onClick={props.actions.incrementRight}>right</button>
       </div>
     );
 };
 
-Header.PropTypes = {
+Column.PropTypes = {
   value: PropTypes.number,
   actions: PropTypes.object
 };
 
 
-export default Header;
+export default Column;

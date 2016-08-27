@@ -1,11 +1,11 @@
 import React from 'react';
 import * as Pieces from '../';
 
-export default function App(props) {
-  console.log('APP RENDERED');
+export default function Root(props) {
+  console.log('ROOT RENDERED');
   console.log(props);
   return (
-    <div id="app">
+    <div id="root">
     </div>
   );
 }

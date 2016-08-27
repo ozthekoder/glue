@@ -1,6 +1,6 @@
 export default {
-  name: 'Header',
-  type: 'container',
+  name: 'Row',
+  type: 'layout',
   actions: [],
   style: [],
   state: {}
