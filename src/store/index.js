@@ -1,8 +1,63 @@
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
+import { normalize, arrayOf, Schema } from 'normalizr';
 import thunk from 'redux-thunk'
 import { browserHistory } from 'react-router'
 import syncReducers from '../reducers'
 import { updateLocation } from '../reducers/location'
+
+const node = new Schema('nodes', { idAttribute: '_id' });
+
+node.define({
+  children: arrayOf(node)
+});
+
+const tree = {
+  _id: '0',
+  name: 'a',
+  children: [
+    {
+      _id: '1',
+      name: 'b',
+      children: [
+        {
+          _id: '6',
+          name: 'd',
+          children: [
+            {
+              _id: '7',
+              name: 'h',
+              children: []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      _id: '2',
+      name: 'c',
+      children: [
+        {
+          _id: '3',
+          name: 'e',
+          children: []
+        },
+        {
+          _id: '4',
+          name: 'f',
+          children: []
+        },
+        {
+          _id: '5',
+          name: 'g',
+          children: []
+        }
+      ]
+    }
+  ]
+};
+
+const normalizedTree = normalize(tree, node);
+console.log(JSON.stringify(normalizedTree, null, 2));
 
 export default class Store {
   static __instance__ = null
