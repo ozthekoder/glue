@@ -1,4 +1,4 @@
-import { injectReducer } from '../../store/reducers'
+import Store from '../../store'
 
 export default (store) => ({
   path : 'counter',
@@ -13,7 +13,7 @@ export default (store) => ({
       const reducer = require('./modules/counter').default
 
       /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'counter', reducer })
+      Store.injectReducer('counter', reducer)
 
       /*  Return getComponent   */
       cb(null, Counter)
